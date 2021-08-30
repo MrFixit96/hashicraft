@@ -1,0 +1,69 @@
+{
+  "min_packer_version": "0.12.0",
+  "variables": {
+    "aws_region": "us-west-2",
+    "nomad_version": "1.1.1",
+    "consul_module_version": "v0.10.1",
+    "consul_version": "1.9.6",
+    "ami_name_prefix": "nomad-consul"
+  },
+  "builders": [
+    {
+      "name": "ubuntu18-ami",
+      "ami_name": "{{user `ami_name_prefix`}}-docker-ubuntu18-{{isotime | clean_resource_name}}",
+      "ami_description": "AMI with git, consul, nomad, java, and docker",
+      "instance_type": "t2.micro",
+      "region": "{{user `aws_region`}}",
+      "type": "amazon-ebs",
+      "source_ami_filter": {
+       "filters": {
+         "virtualization-type": "hvm",
+         "architecture": "x86_64",
+         "name": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*",
+         "block-device-mapping.volume-type": "gp2",
+         "root-device-type": "ebs"
+       },
+       "owners": [
+         "099720109477"
+       ],
+       "most_recent": true
+      },
+      "ssh_username": "ubuntu"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get install -y git"
+      ],
+      "only": [
+        "ubuntu18-ami"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": ["sudo apt install -y default-jre"]
+    },
+    {
+      "type": "shell",
+      "inline": ["mkdir -p /tmp/terraform-aws-nomad"],
+      "pause_before": "30s"
+    },
+    {
+      "type": "file",
+      "source": "{{template_dir}}/../../",
+      "destination": "/tmp/terraform-aws-nomad"
+    },
+      {
+      "type": "shell",
+      "environment_vars": [
+        "NOMAD_VERSION={{user `nomad_version`}}",
+        "CONSUL_VERSION={{user `consul_version`}}",
+        "CONSUL_MODULE_VERSION={{user `consul_module_version`}}"
+      ],
+      "script": "{{template_dir}}/setup_nomad_consul.sh"
+    }
+  ]
+}
+
