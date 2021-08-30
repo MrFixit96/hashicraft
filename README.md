@@ -1,14 +1,32 @@
 # Hashicraft
 
-These are the steps to deploy a Minecraft Server into a Nomad + Consul cluster in AWS using Terraform, Nomad, Consul, Packer, Vault and Waypoint. Use Vagrant to set up your personal dev env.
+These are the steps to deploy a Minecraft Server into a Nomad + Consul cluster in AWS us-west-2 using Terraform, Nomad, Consul, Packer, Vault and Waypoint. Use Vagrant to set up your personal dev env.
 
 This is running Minecraft version 1.15.2
 
 This creates some 4 ec2 instances in AWS. 3 Nomad Servers (t2.micro) and 1 Nomad Client (m5.large) these can be changed in `/hashicraft_ami/terraform-aws-nomad/variables.tf`
 
+Guides used:
+
+```
+   Offical HashiCorp Documentation
+   https://github.com/hashicorp/terraform-aws-nomad/blob/master/core-concepts.md#deploy-nomad-and-consul-in-the-same-cluster
+   https://burkey.dev/post/learning-nomad-scheduling-minecraft/
+   Google
+```
+
 1. Clone the repo
 2. Change terraform backend to your own backend
-3. Configure your AWS and HCP credentials in your CLI, as well as TF Cloud if using it
+3. Configure your AWS and HCP credentials in your CLI, as well as TF Cloud if using it. 
+``` 
+   Required variables in TF cloud
+
+   AWS_ACCESS_KEY_ID
+   AWS_SECRET_ACCESS_KEY
+   HCP_CLIENT_ID
+   HCP_CLIENT_SECRET
+   
+```
 4. `CD /hashicraft_ami/terraform-aws-nomad/examples/nomad_consul_ami/`
 5. `packer build nomad-consul.json'
 6. Take the AMI ID output from packer and put into `/hashicraft_ami/terraform-aws-nomad/variables.tf` AMI variable
