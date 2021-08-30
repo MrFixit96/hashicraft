@@ -54,7 +54,7 @@ Guides used:
 12. Take note of the port in the output, example:
 ```Advertise Address: 10.0.103.117:30496```
 13. Run `waypoint user token` and take note of the token
-14. Get the Public IP of your Nomad Client. Connect to the UI with `https:// public ip of nomad client :9702
+14. Get the Public IP of your Nomad Client. Connect to the UI with `https://<public ip of nomad client>:9702 `
 15. Authenticate with the token from the previous step
 16. In the UI find the invite command in the top right to create a CLI command
 17. Modify the command to look like this:
