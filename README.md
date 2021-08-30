@@ -4,7 +4,7 @@ These are the steps to deploy a Minecraft Server into a Nomad + Consul cluster i
 
 This is running Minecraft version 1.15.2
 
-This creates some 4 ec2 instances in AWS. 3 Nomad Servers (t2.micro) and 1 Nomad Client (m5.large) these can be changed in `/hashicraft_ami/terraform-aws-nomad/variables.tf`
+This create 4 ec2 instances in AWS. 3 Nomad Servers (t2.micro) and 1 Nomad Client (m5.large) these can be changed in `/hashicraft_ami/terraform-aws-nomad/variables.tf`
 
 Guides used:
 
