@@ -28,7 +28,7 @@ Guides used:
    
 ```
 4. `CD /hashicraft_ami/terraform-aws-nomad/examples/nomad_consul_ami/`
-5. `packer build nomad-consul.json'
+5. `packer build nomad-consul.json`
 6. Take the AMI ID output from packer and put into `/hashicraft_ami/terraform-aws-nomad/variables.tf` AMI variable
 9. Change the key-pair value in the `variables.tf` to your own
 8. In the `/hashicraft_ami/` dir run `terraform plan` then `terraform apply`
