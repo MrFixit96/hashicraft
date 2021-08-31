@@ -25,9 +25,9 @@ resource "hcp_vault_cluster" "hcp_vault" {
 # This admin token will be used with the Vault provider to manage Vault configuration.
 # ---------------------------------------------------------------------------------------------------------------------
 
-resource "hcp_vault_cluster_admin_token" "token" {
-  cluster_id = var.cluster_id
-}
+// resource "hcp_vault_cluster_admin_token" "token" {
+//   cluster_id = var.cluster_id
+// }
 
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE VPC PEERING BETWEEN HVN AND AWS
