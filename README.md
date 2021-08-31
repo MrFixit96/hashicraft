@@ -1,6 +1,6 @@
 # Hashicraft
 
-These are the steps to deploy a Minecraft Server into a Nomad + Consul cluster in AWS us-west-2 using Terraform, Nomad, Consul, Packer, Vault and Waypoint. Vagrant is installed with Consul, Nomad, Terraform, Packer, Vault, and Waypoint for CLI usage.
+These are the steps to deploy a Minecraft Server into a Nomad + Consul cluster in AWS us-west-2 using Terraform, Nomad, Consul, Packer, Vault and Waypoint. Vagrant is installed with AWS CLI, Consul, Nomad, Terraform, Packer, Vault, and Waypoint for CLI usage.
 
 This is running Minecraft version 1.15.2
 
