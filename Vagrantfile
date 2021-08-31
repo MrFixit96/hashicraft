@@ -75,6 +75,7 @@ Vagrant.configure("2") do |config|
     apt-cache policy docker-ce
     sudo apt-get install -y docker-ce
     sudo apt-get install -y unzip
+    sudo apt-get install -y jq
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     unzip awscliv2.zip
     sudo ./aws/install
