@@ -1,6 +1,6 @@
 # Hashicraft
 
-These are the steps to deploy a Minecraft Server into a Nomad + Consul cluster in AWS us-west-2 using Terraform, Nomad, Consul, Packer, Vault and Waypoint. Use Vagrant to set up your personal dev env.
+These are the steps to deploy a Minecraft Server into a Nomad + Consul cluster in AWS us-west-2 using Terraform, Nomad, Consul, Packer, Vault and Waypoint. Vagrant is installed with Consul, Nomad, Terraform, Packer, Vault, and Waypoint for CLI usage.
 
 This is running Minecraft version 1.15.2
 
@@ -16,8 +16,13 @@ Guides used:
 ```
 
 1. Clone the repo
-2. Change terraform backend to your own backend
-3. Configure your AWS and HCP credentials in your CLI, as well as TF Cloud if using it. 
+2. Change to the `hashicraft` directory
+3. `vagrant up` to intialize your environment
+4. `vagrant ssh` to ssh into the vagrant env
+5. Files in your project directory can be found in `/vagrant/`
+6. `cd /vagrant/`
+7. Change terraform backend to your own backend in `/hashicraft_ami/terraform-aws-nomad/`, can be found in the `main.tf` file.
+8. Configure your AWS and HCP credentials in your CLI, as well as TF Cloud if using it. 
 ``` 
    Required variables in TF cloud
 
