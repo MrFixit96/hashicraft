@@ -71,9 +71,9 @@ Guides used:
        -server-tls-skip-verify \
        -set-default default ```
 23. Run the above command in your local environment
-24. Run `waypoint context verify` to verify your CLI has been configured to the remote waypoint server
+24. Run `sudo waypoint context verify` to verify your CLI has been configured to the remote waypoint server
 25. Go to the `/hashicraft_src` dir
-26. Run `waypoint init`
-27. Run `waypoint up`
+26. Run `sudo waypoint init`
+27. Run `sudo -E waypoint up`
 28. Connect to the minecraft server using the Nomad Client's public IP
 29. Clean up, run `terraform destroy` in `/hashicraft_ami/terraform-aws-nomad/` dir
